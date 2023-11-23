@@ -12,7 +12,6 @@ raw_words = file.readlines()
 for word in raw_words:
     accepted_words.append(word.strip())
 
-
 def print_colour(word_list, aim):
     greend = []
     score = []
@@ -39,7 +38,6 @@ def print_colour(word_list, aim):
     print("\033[1;37;40m\n")
     return score
 
-
 def get_aim():
     while True:
         total = 0
@@ -63,7 +61,6 @@ def get_aim():
             print("~Please enter a five letter word~")
     return aim
 
-
 def pure_rand(chimps, aim):
     tries = 0
     while chimps != aim:
@@ -80,7 +77,6 @@ def pure_rand(chimps, aim):
         tries += 1
     return tries
 
-
 def rand_words(chimps, aim):
     tries = 0
     while chimps != aim:
@@ -88,7 +84,6 @@ def rand_words(chimps, aim):
         print_colour(chimps, aim)
         tries += 1
     return tries
-
 
 def minor_intelligence(chimps, aim, printable):
     tries = 1
@@ -98,29 +93,16 @@ def minor_intelligence(chimps, aim, printable):
     while chimps != aim and last != aim:
         chimps = []
         index = 0
-        yellow = ""
         for i in score:
             if i == 2:
                 chimps.append(last[index])
-            elif i == 1:
-                chimps.append(random.choice(new_printable))
-                yellow = last[i]
             else:
-                if yellow != "":
-                    chimps.append(yellow)
-                    yellow == ""
-                else:
-                    chimps.append(random.choice(new_printable))
-                try:
-                    new_printable.remove(last[index])
-                except:
-                    pass
+                chimps.append(random.choice(new_printable))
             index += 1
         last = chimps
         score = print_colour(chimps, aim)
         tries += 1
     return tries
-
 
 def mode(aim, printable):
     chimps = []
@@ -139,7 +121,6 @@ def mode(aim, printable):
             tries = minor_intelligence(chimps, aim, printable)
             break
     return tries
-
 
 while True:
     os.system('cls')

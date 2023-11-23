@@ -7,7 +7,7 @@ import math
 os.system('cls')
 
 accepted_words = []
-file = open("Computational-Projects/Chimps-on-Wordle/accepted_words.txt", "r")
+file = open("Computational-Projects/Chimps-on-Wordle/Program/accepted_words.txt", "r")
 raw_words = file.readlines()
 for word in raw_words:
     accepted_words.append(word.strip())
